@@ -41,13 +41,13 @@ const Bio = () => {
 				loading='lazy'
 				decoding="async"
 				className='illustration h-fit mt-auto sm:w-1/2 w-full sm:static absolute bottom-0 sm:opacity-100 opacity-25 z-10'
-				src="https://res.cloudinary.com/dvgntf60n/image/upload/f_auto,q_auto/portrait_portfolio_heidendev"
+				src="https://res.cloudinary.com/dvgntf60n/image/upload/f_auto,q_auto/portfolio_heidendev"
 				srcSet="
-					https://res.cloudinary.com/dvgntf60n/image/upload/f_auto,q_auto:low,w_300/portrait_portfolio_heidendev 400w,
-					https://res.cloudinary.com/dvgntf60n/image/upload/f_auto,q_auto:low,w_500/portrait_portfolio_heidendev 800w,
-					https://res.cloudinary.com/dvgntf60n/image/upload/f_auto,q_auto:low,w_700/portrait_portfolio_heidendev 1200w"
+					https://res.cloudinary.com/dvgntf60n/image/upload/f_auto,q_auto:low,w_300/portfolio_heidendev 400w,
+					https://res.cloudinary.com/dvgntf60n/image/upload/f_auto,q_auto:low,w_500/portfolio_heidendev 800w,
+					https://res.cloudinary.com/dvgntf60n/image/upload/f_auto,q_auto:low,w_700/portfolio_heidendev 1200w"
 				sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px"
-				alt="AI generated image of me"
+				alt="image of me"
 			/>
 		</div>
 	)
