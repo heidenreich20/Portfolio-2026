@@ -1,0 +1,44 @@
+{
+    "techStack": {
+        "Frameworks": [
+            "React",
+            "React Native",
+            "Astro",
+            "Next.js",
+            "Blazor"
+        ],
+        "Languages": [
+            "JavaScript",
+            "TypeScript",
+            "C#",
+            ".NET",
+            "SQL",
+            "HTML",
+            "CSS"
+        ],
+        "Backend": [
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "PostgreSQL",
+            "Zod",
+            "jsonwebtoken",
+            "bcrypt",
+            "axios"
+        ],
+        "Tools": [
+            "Git",
+            "Docker",
+            "Vercel",
+            "Firebase",
+            "Cursor",
+            "GitHub Copilot",
+            "Claude"
+        ],
+        "Testing": [
+            "Jest",
+            "React Testing Library",
+            "Cypress"
+        ]
+    }
+}

@@ -1,0 +1,72 @@
+[
+    {
+        "projectLink": "https://estudio-komorebi.netlify.app/",
+        "githubLink": "https://github.com/heidenreich20/komorebi-studio",
+        "projectName": "Estudio Komorebi",
+        "projectTitle": "Estudio Komorebi: Community Manager Services",
+        "projectDescription": "A website for a community manager services business, it has information about the services offered and a contact form.",
+        "projectImage": {
+            "src": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,/komorebi-preview_blpzci.png",
+            "srcSet": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_300/komorebi-preview_blpzci.png 200w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_450/komorebi-preview_blpzci.png 800w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_700/komorebi-preview_blpzci.png 1200w",
+            "sizes": "(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px"
+        }
+    },
+    {
+        "projectLink": "https://next-game-news.vercel.app/",
+        "githubLink": "https://github.com/heidenreich20/NextGameNews",
+        "projectName": "GameNews",
+        "projectTitle": "GameNews: A Gaming News Website",
+        "projectDescription": "A website that shows the latest news about video games, it also has a search bar to find news about a specific game.",
+        "projectImage": {
+            "src": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,/GameNews",
+            "srcSet": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_300/GameNews 200w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_450/GameNews 800w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_700/GameNews 1200w",
+            "sizes": "(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px"
+        }
+    },
+    {
+        "projectLink": "https://fakemedical.vercel.app/",
+        "githubLink": "https://github.com/heidenreich20/fakemedical",
+        "projectName": "FakeDental",
+        "projectTitle": "FakeDental: A Dental Clinic Website",
+        "projectDescription": "A website for a dental clinic, it has a contact form and a gallery of the clinic.",
+        "projectImage": {
+            "src": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low/FakeDental",
+            "srcSet": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_300/FakeDental 200w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_450/FakeDental 800w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_700/FakeDental 1200w",
+            "sizes": "(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px"
+        }
+    },
+    {
+        "projectLink": "https://sapphire-bistro.netlify.app/",
+        "githubLink": "https://github.com/heidenreich20/sapphire-bistro",
+        "projectName": "Sapphire Bistro",
+        "projectTitle": "Sapphire Bistro: A Restaurant Website",
+        "projectDescription": "A website for a restaurant, it has a menu and a contact form.",
+        "projectImage": {
+            "src": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low/SapphireBistro",
+            "srcSet": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_300/SapphireBistro 200w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_450/SapphireBistro 800w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_700/SapphireBistro 1200w",
+            "sizes": "(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px"
+        }
+    },
+    {
+        "projectLink": null,
+        "projectName": "NutriApp",
+        "projectTitle": "NutriApp: A Nutrition App",
+        "projectDescription": "A website for a nutrition app, it shows nutritional information of various foods",
+        "projectImage": {
+            "src": "https://res.cloudinary.com/dvgntf60n/image/upload/f_auto,q_auto/swfewqfetuuhcwxmqazx",
+            "srcSet": "https://res.cloudinary.com/dvgntf60n/image/upload/f_auto,q_auto,w_300/swfewqfetuuhcwxmqazx 200w, https://res.cloudinary.com/dvgntf60n/image/upload/f_auto,q_auto,w_450/swfewqfetuuhcwxmqazx 800w, https://res.cloudinary.com/dvgntf60n/image/upload/f_auto,q_auto,w_700/swfewqfetuuhcwxmqazx 1200w",
+            "sizes": "(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px"
+        }
+    },
+    {
+        "projectLink": "https://totallynotarealgym.vercel.app/",
+        "projectName": "FakeGym",
+        "projectTitle": "FakeGym: A Gym Website",
+        "projectDescription": "A gym website with its own store",
+        "projectImage": {
+            "src": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low/FakeGym",
+            "srcSet": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_300/FakeGym 200w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_450/FakeGym 800w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_700/FakeGym 1200w",
+            "sizes": "(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px"
+        }
+    }
+]
