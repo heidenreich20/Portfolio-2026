@@ -18,8 +18,8 @@
         "projectTitle": "GameNews: A Gaming News Website",
         "projectDescription": "A website that shows the latest news about video games, it also has a search bar to find news about a specific game.",
         "projectImage": {
-            "src": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,/GameNews",
-            "srcSet": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_300/GameNews 200w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_450/GameNews 800w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_700/GameNews 1200w",
+            "src": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,/GameNews_Cover",
+            "srcSet": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_300/GameNews_Cover 200w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_450/GameNews_Cover 800w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_700/GameNews_Cover 1200w",
             "sizes": "(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px"
         }
     },
