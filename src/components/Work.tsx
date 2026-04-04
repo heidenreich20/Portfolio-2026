@@ -10,6 +10,7 @@ interface Project {
   projectName: string;
   projectTitle: string;
   projectDescription: string;
+  serverLink?: string | null;
   projectImage: {
     src: string;
     srcSet?: string;
@@ -34,6 +35,7 @@ const Work = () => {
             projectLink={project.projectLink}
             projectImage={project.projectImage}
             githubLink={project.githubLink}
+            serverLink={project.serverLink}
           />
         ))}
       </section>

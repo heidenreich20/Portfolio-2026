@@ -2,6 +2,7 @@
     {
         "projectLink": "https://estudio-komorebi.netlify.app/",
         "githubLink": "https://github.com/heidenreich20/komorebi-studio",
+        "serverLink": null,
         "projectName": "Estudio Komorebi",
         "projectTitle": "Estudio Komorebi: Community Manager Services",
         "projectDescription": "A website for a community manager services business, it has information about the services offered and a contact form.",
@@ -14,6 +15,7 @@
     {
         "projectLink": "https://next-game-news.vercel.app/",
         "githubLink": "https://github.com/heidenreich20/NextGameNews",
+        "serverLink": "https://github.com/heidenreich20/GameNews---Server",
         "projectName": "GameNews",
         "projectTitle": "GameNews: A Gaming News Website",
         "projectDescription": "A website that shows the latest news about video games, it also has a search bar to find news about a specific game.",
@@ -26,6 +28,7 @@
     {
         "projectLink": "https://fakemedical.vercel.app/",
         "githubLink": "https://github.com/heidenreich20/fakemedical",
+        "serverLink": null,
         "projectName": "FakeDental",
         "projectTitle": "FakeDental: A Dental Clinic Website",
         "projectDescription": "A website for a dental clinic, it has a contact form and a gallery of the clinic.",
@@ -38,6 +41,7 @@
     {
         "projectLink": "https://sapphire-bistro.netlify.app/",
         "githubLink": "https://github.com/heidenreich20/sapphire-bistro",
+        "serverLink": null,
         "projectName": "Sapphire Bistro",
         "projectTitle": "Sapphire Bistro: A Restaurant Website",
         "projectDescription": "A website for a restaurant, it has a menu and a contact form.",
@@ -49,6 +53,8 @@
     },
     {
         "projectLink": null,
+        "githubLink": null,
+        "serverLink": null,
         "projectName": "NutriApp",
         "projectTitle": "NutriApp: A Nutrition App",
         "projectDescription": "A website for a nutrition app, it shows nutritional information of various foods",
@@ -60,6 +66,8 @@
     },
     {
         "projectLink": "https://totallynotarealgym.vercel.app/",
+        "githubLink": null,
+        "serverLink": null,
         "projectName": "FakeGym",
         "projectTitle": "FakeGym: A Gym Website",
         "projectDescription": "A gym website with its own store",
