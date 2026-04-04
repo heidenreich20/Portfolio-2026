@@ -6,6 +6,7 @@
         "projectName": "Estudio Komorebi",
         "projectTitle": "Estudio Komorebi: Community Manager Services",
         "projectDescription": "A website for a community manager services business, it has information about the services offered and a contact form.",
+        "status": "COMPLETED",
         "projectImage": {
             "src": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,/komorebi-preview_blpzci.png",
             "srcSet": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_300/komorebi-preview_blpzci.png 200w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_450/komorebi-preview_blpzci.png 800w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_700/komorebi-preview_blpzci.png 1200w",
@@ -19,6 +20,7 @@
         "projectName": "GameNews",
         "projectTitle": "GameNews: A Gaming News Website",
         "projectDescription": "A website that shows the latest news about video games, it also has a search bar to find news about a specific game.",
+        "status": "WIP",
         "projectImage": {
             "src": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,/GameNews_Cover",
             "srcSet": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_300/GameNews_Cover 200w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_450/GameNews_Cover 800w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_700/GameNews_Cover 1200w",
@@ -32,6 +34,7 @@
         "projectName": "FakeDental",
         "projectTitle": "FakeDental: A Dental Clinic Website",
         "projectDescription": "A website for a dental clinic, it has a contact form and a gallery of the clinic.",
+        "status": "COMPLETED",
         "projectImage": {
             "src": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low/FakeDental",
             "srcSet": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_300/FakeDental 200w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_450/FakeDental 800w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_700/FakeDental 1200w",
@@ -45,6 +48,7 @@
         "projectName": "Sapphire Bistro",
         "projectTitle": "Sapphire Bistro: A Restaurant Website",
         "projectDescription": "A website for a restaurant, it has a menu and a contact form.",
+        "status": "COMPLETED",
         "projectImage": {
             "src": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low/SapphireBistro",
             "srcSet": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_300/SapphireBistro 200w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_450/SapphireBistro 800w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_700/SapphireBistro 1200w",
@@ -55,6 +59,7 @@
         "projectLink": null,
         "githubLink": null,
         "serverLink": null,
+        "status": "ARCHIVED",
         "projectName": "NutriApp",
         "projectTitle": "NutriApp: A Nutrition App",
         "projectDescription": "A website for a nutrition app, it shows nutritional information of various foods",
@@ -71,6 +76,7 @@
         "projectName": "FakeGym",
         "projectTitle": "FakeGym: A Gym Website",
         "projectDescription": "A gym website with its own store",
+        "status": "WIP",
         "projectImage": {
             "src": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low/FakeGym",
             "srcSet": "https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_300/FakeGym 200w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_450/FakeGym 800w, https://res.cloudinary.com/dvgntf60n/image/upload/g_north,q_auto:low,w_700/FakeGym 1200w",

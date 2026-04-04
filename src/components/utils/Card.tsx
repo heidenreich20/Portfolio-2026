@@ -5,6 +5,7 @@ interface CardProps {
   projectName: string;
   projectTitle: string;
   projectDescription: string;
+  status?: string;
   projectImage: {
     src: string;
     srcSet?: string;
@@ -12,7 +13,7 @@ interface CardProps {
   };
 }
 
-const Card = ({ projectTitle, projectDescription, projectImage, projectLink, projectName, githubLink, serverLink }: CardProps) => {
+const Card = ({ projectTitle, projectDescription, projectImage, projectLink, projectName, githubLink, serverLink, status }: CardProps) => {
   return (
     <article className="project-card h-full bg-primary p-1 border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] transition-transform hover:shadow-[14px_14px_0px_0px_rgba(0,0,0,1)]">
       <div className="bg-[#1e1e1e] h-full p-4 flex flex-col gap-4 border-2 border-black">
@@ -25,7 +26,7 @@ const Card = ({ projectTitle, projectDescription, projectImage, projectLink, pro
             alt={`${projectName} preview`}
           />
           <div className="absolute top-4 right-4 bg-secondary text-black text-[10px] font-black px-2 py-1 border-2 border-black shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] uppercase">
-            WIP
+            {status || 'WIP'}
           </div>
         </figure>
         
