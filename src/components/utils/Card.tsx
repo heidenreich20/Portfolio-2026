@@ -45,7 +45,7 @@ const Card = ({ projectTitle, projectDescription, projectImage, projectLink, pro
             href={githubLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text/70 hover:text-primary underline decoration-divider underline-offset-4"
+            className="text-text/70 text-lg hover:text-primary underline decoration-divider underline-offset-4"
           >
             Code
           </a>
@@ -55,7 +55,7 @@ const Card = ({ projectTitle, projectDescription, projectImage, projectLink, pro
             href={serverLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text/70 hover:text-primary underline decoration-divider underline-offset-4"
+            className="text-text/70 text-lg hover:text-primary underline decoration-divider underline-offset-4"
           >
             Server
           </a>
@@ -65,12 +65,12 @@ const Card = ({ projectTitle, projectDescription, projectImage, projectLink, pro
             href={projectLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-primary hover:text-secondary underline decoration-divider underline-offset-4"
+            className="text-primary text-lg hover:text-secondary underline decoration-divider underline-offset-4"
           >
             Live
           </a>
         ) : (
-          <span className="text-text/40 cursor-not-allowed">Offline</span>
+          <span className="text-text/40 text-lg cursor-not-allowed">Offline</span>
         )}
       </div>
     </article>
