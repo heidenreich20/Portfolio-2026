@@ -8,7 +8,7 @@ interface NavDesktopProps {
 
 const NavDesktop = ({ t, showMenu }: NavDesktopProps) => {
   return (
-    <nav className='flex mt-6 xl:mx-12 mx-4 px-6 py-4 items-center justify-between bg-bg border-b border-divider z-99 top-4'>
+    <nav className='flex mt-6 py-4 items-center justify-between bg-bg border-b border-divider z-99 top-4'>
         <p className="font-fraunces italic xl:text-2xl lg:text-lg text-base text-text">
           Pablo Heidenreich
         </p>

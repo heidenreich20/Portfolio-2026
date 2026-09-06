@@ -5,7 +5,7 @@ const TechStack = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="xl:mx-12 mx-4 my-24">
+    <section className="my-24">
       <h2 className="font-fraunces text-3xl sm:text-4xl xl:text-5xl font-semibold text-text mb-10">
         {t("MyKnowledge")}
       </h2>

@@ -1,8 +1,6 @@
 import Card from "./utils/Card";
 import projects from "../../data/projects.json";
 import { useTranslation } from "react-i18next";
-import DividerTop from "./utils/DividerTop";
-import DividerBottom from "./utils/DividerBottom";
 
 interface Project {
   projectLink?: string | null;
@@ -23,10 +21,9 @@ const Work = () => {
   const { t } = useTranslation();
 
   return (
-    <div id="projects" className="relative flex flex-col gap-12 px-4 xl:px-12 sm:pt-42 pt-20">
-      <DividerTop />
+    <div id="projects" className="flex flex-col gap-12 sm:pt-42 pt-20 border-t border-b border-divider">
       <h2 className="font-fraunces text-xl sm:text-4xl xl:text-6xl font-semibold text-text">{t("Latest Work")}</h2>
-      <section className="projects flex pb-50 z-10">
+      <section className="projects flex pb-50">
         {projects.map((project: Project, index: number) => (
           <Card
             key={index}
@@ -41,7 +38,6 @@ const Work = () => {
           />
         ))}
       </section>
-      <DividerBottom />
     </div>
   );
 };

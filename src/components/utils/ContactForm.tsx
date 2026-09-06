@@ -85,7 +85,7 @@ const ContactForm: React.FC = () => {
   `;
 
   return (
-    <section className="my-24 px-4">
+    <section className="my-24">
       <form
         onSubmit={handleSubmit}
         className="max-w-2xl mx-auto border-t border-divider p-10"

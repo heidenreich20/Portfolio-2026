@@ -6,7 +6,7 @@ import TechStack from "./components/TechStack";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import NavDesktop from "./components/utils/NavDesktop";
-import NavMobile from "./components/utils/NavMobile"; // Nuevo import
+import NavMobile from "./components/utils/NavMobile";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,16 +15,18 @@ function App() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <main className="bg-surface min-h-screen selection:bg-black selection:text-primary">
+    <main className="bg-bg min-h-screen selection:bg-black selection:text-primary">
       <NavMobile isOpen={isMenuOpen} onClose={toggleMenu} />
-      <NavDesktop t={t} showMenu={toggleMenu} />
-      <article className="overflow-hidden">
-        <Bio />
-        <Work />
-        <TechStack />
-        <Contact />
-      </article>
-      <Footer />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <NavDesktop t={t} showMenu={toggleMenu} />
+        <article className="overflow-hidden">
+          <Bio />
+          <Work />
+          <TechStack />
+          <Contact />
+        </article>
+        <Footer />
+      </div>
     </main>
   );
 }
