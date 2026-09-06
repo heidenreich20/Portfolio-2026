@@ -76,107 +76,136 @@ const t = useTranslations(lang);
 </section>
 
 <script>
-  import emailjs from "@emailjs/browser";
-
   const form = document.querySelector<HTMLFormElement>("#contact-form");
+
   if (form) {
-    const nameInput = form.querySelector<HTMLInputElement>("#name")!;
-    const emailInput = form.querySelector<HTMLInputElement>("#email")!;
-    const messageInput = form.querySelector<HTMLTextAreaElement>("#message")!;
-    const fieldErrors = form.querySelectorAll<HTMLParagraphElement>(".field-error");
-    const submitBtn = form.querySelector<HTMLButtonElement>(".submit-btn")!;
-    const submitMessageEl = form.querySelector<HTMLDivElement>(".submit-message")!;
+    let initialized = false;
 
-    const messages = form.dataset;
+    const initializeForm = async () => {
+      if (initialized) return;
+      initialized = true;
 
-    const clearErrors = () => {
-      fieldErrors.forEach((el) => {
-        el.textContent = "";
-        el.classList.add("hidden");
-      });
-      [nameInput, emailInput, messageInput].forEach((el) =>
-        el.classList.remove("border-red-700")
-      );
-    };
+      const emailjs = (await import("@emailjs/browser")).default;
+      const nameInput = form.querySelector<HTMLInputElement>("#name")!;
+      const emailInput = form.querySelector<HTMLInputElement>("#email")!;
+      const messageInput = form.querySelector<HTMLTextAreaElement>("#message")!;
+      const fieldErrors = form.querySelectorAll<HTMLParagraphElement>(".field-error");
+      const submitBtn = form.querySelector<HTMLButtonElement>(".submit-btn")!;
+      const submitMessageEl = form.querySelector<HTMLDivElement>(".submit-message")!;
 
-    const showError = (input: HTMLInputElement | HTMLTextAreaElement, message: string) => {
-      const wrapper = input.closest("div");
-      const errorEl = wrapper?.querySelector<HTMLParagraphElement>(".field-error");
-      if (errorEl) {
-        errorEl.textContent = message;
-        errorEl.classList.remove("hidden");
-      }
-      input.classList.add("border-red-700");
-      input.classList.remove("border-divider");
-    };
+      const messages = form.dataset;
 
-    const validate = () => {
-      clearErrors();
-      let valid = true;
+      const clearErrors = () => {
+        fieldErrors.forEach((el) => {
+          el.textContent = "";
+          el.classList.add("hidden");
+        });
+        [nameInput, emailInput, messageInput].forEach((el) =>
+          el.classList.remove("border-red-700")
+        );
+      };
 
-      if (!nameInput.value.trim()) {
-        showError(nameInput, messages.nameRequired ?? "");
-        valid = false;
-      }
+      const showError = (input: HTMLInputElement | HTMLTextAreaElement, message: string) => {
+        const wrapper = input.closest("div");
+        const errorEl = wrapper?.querySelector<HTMLParagraphElement>(".field-error");
+        if (errorEl) {
+          errorEl.textContent = message;
+          errorEl.classList.remove("hidden");
+        }
+        input.classList.add("border-red-700");
+        input.classList.remove("border-divider");
+      };
 
-      if (!emailInput.value.trim()) {
-        showError(emailInput, messages.emailRequired ?? "");
-        valid = false;
-      } else if (!/\S+@\S+\.\S+/.test(emailInput.value)) {
-        showError(emailInput, messages.emailInvalid ?? "");
-        valid = false;
-      }
+      const validate = () => {
+        clearErrors();
+        let valid = true;
 
-      if (!messageInput.value.trim()) {
-        showError(messageInput, messages.messageRequired ?? "");
-        valid = false;
-      }
-
-      return valid;
-    };
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      if (!validate()) return;
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = messages.sendingLabel ?? "Sending...";
-      submitMessageEl.classList.add("hidden");
-
-      try {
-        const serviceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
-        const templateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
-        const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
-
-        if (!serviceId || !templateId || !publicKey) {
-          throw new Error("Missing EmailJS env vars");
+        if (!nameInput.value.trim()) {
+          showError(nameInput, messages.nameRequired ?? "");
+          valid = false;
         }
 
-        await emailjs.send(
-          serviceId,
-          templateId,
-          {
-            user_name: nameInput.value,
-            user_email: emailInput.value,
-            message: messageInput.value,
-            reply_to: emailInput.value,
-          },
-          publicKey
-        );
+        if (!emailInput.value.trim()) {
+          showError(emailInput, messages.emailRequired ?? "");
+          valid = false;
+        } else if (!/\S+@\S+\.\S+/.test(emailInput.value)) {
+          showError(emailInput, messages.emailInvalid ?? "");
+          valid = false;
+        }
 
-        submitMessageEl.textContent = messages.successMsg ?? "";
-        submitMessageEl.classList.remove("hidden", "border-red-700", "text-red-700");
-        submitMessageEl.classList.add("border-primary", "text-text");
-        form.reset();
-      } catch (error) {
-        console.error("EmailJS Error details:", error);
-        submitMessageEl.textContent = messages.errorMsg ?? "";
-        submitMessageEl.classList.remove("hidden", "border-primary", "text-text");
-        submitMessageEl.classList.add("border-red-700", "text-red-700");
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = messages.sendLabel ?? "Send";
-      }
-    });
+        if (!messageInput.value.trim()) {
+          showError(messageInput, messages.messageRequired ?? "");
+          valid = false;
+        }
+
+        return valid;
+      };
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        if (!validate()) return;
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = messages.sendingLabel ?? "Sending...";
+        submitMessageEl.classList.add("hidden");
+
+        try {
+          const serviceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+          const templateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+          const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+
+          if (!serviceId || !templateId || !publicKey) {
+            throw new Error("Missing EmailJS env vars");
+          }
+
+          await emailjs.send(
+            serviceId,
+            templateId,
+            {
+              user_name: nameInput.value,
+              user_email: emailInput.value,
+              message: messageInput.value,
+              reply_to: emailInput.value,
+            },
+            publicKey
+          );
+
+          submitMessageEl.textContent = messages.successMsg ?? "";
+          submitMessageEl.classList.remove("hidden", "border-red-700", "text-red-700");
+          submitMessageEl.classList.add("border-primary", "text-text");
+          form.reset();
+        } catch (error) {
+          console.error("EmailJS Error details:", error);
+          submitMessageEl.textContent = messages.errorMsg ?? "";
+          submitMessageEl.classList.remove("hidden", "border-primary", "text-text");
+          submitMessageEl.classList.add("border-red-700", "text-red-700");
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = messages.sendLabel ?? "Send";
+        }
+      });
+    };
+
+    const trigger = () => {
+      void initializeForm();
+    };
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              trigger();
+              observer.unobserve(form);
+            }
+          });
+        },
+        { rootMargin: "200px" }
+      );
+
+      observer.observe(form);
+    } else {
+      trigger();
+    }
   }
 </script>
