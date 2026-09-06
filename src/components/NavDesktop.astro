@@ -1,0 +1,59 @@
+---
+import LanguageSelector from "./LanguageSelector.astro";
+import { useTranslations, type Lang } from "../i18n/utils";
+import menuIcon from "../assets/menu-icon.svg";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<nav class="flex mt-6 py-4 items-center justify-between bg-bg border-b border-divider z-99 top-4">
+  <p class="font-fraunces italic xl:text-2xl lg:text-lg text-base text-text">Pablo Heidenreich</p>
+  <ul class="items-center font-sans xl:text-sm text-xs sm:flex hidden gap-8">
+    <li class="relative group">
+      <a href="#projects" class="text-text/70 hover:text-primary transition-colors duration-200">
+        {t("My Work")}
+      </a>
+      <span class="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full"></span>
+    </li>
+
+    <li class="relative group">
+      <a
+        href="https://www.linkedin.com/in/pabloheid/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-text/70 hover:text-primary transition-colors duration-200"
+      >
+        {t("About Me")}
+      </a>
+      <span class="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full"></span>
+    </li>
+
+    <li class="relative group">
+      <a
+        href="https://www.linkedin.com/in/pablo-heidenreich/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-text/70 hover:text-primary transition-colors duration-200"
+      >
+        {t("My Experience")}
+      </a>
+      <span class="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full"></span>
+    </li>
+
+    <li class="border-l border-divider pl-6 h-8 flex items-center">
+      <LanguageSelector lang={lang} />
+    </li>
+  </ul>
+  <button
+    id="menu-open-btn"
+    aria-label="Menu button"
+    class="burger sm:hidden h-12 w-12 flex items-center justify-center hover:opacity-70 transition-opacity"
+  >
+    <img src={menuIcon.src} alt="Menu" class="w-6 h-6" />
+  </button>
+</nav>

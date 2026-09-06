@@ -1,0 +1,94 @@
+---
+// Ported from NavMobile.tsx. The open/close state was the only reason
+// this used React; a couple of classList toggles do the same job with no
+// hydrated component at all.
+import LanguageSelector from "./LanguageSelector.astro";
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div
+  id="mobile-menu-overlay"
+  class="fixed inset-0 bg-text/40 backdrop-blur-sm z-[60] transition-opacity duration-300 opacity-0 pointer-events-none"
+>
+</div>
+
+<aside
+  id="mobile-menu-panel"
+  class="fixed top-0 h-full w-[280px] bg-bg border-r border-divider z-[70] transition-all duration-300 ease-in-out -left-[300px]"
+>
+  <div class="p-6 flex flex-col h-full">
+    <button
+      id="menu-close-btn"
+      aria-label={t("Close menu")}
+      class="self-end text-text text-2xl w-10 h-10 hover:opacity-60 transition-opacity"
+    >
+      ×
+    </button>
+
+    <nav>
+      <ul class="flex flex-col gap-8 font-fraunces text-2xl">
+        <li class="border-b border-divider pb-3">
+          <a href="#projects" class="mobile-nav-link hover:text-primary transition-colors block">
+            {t("My Work")}
+          </a>
+        </li>
+        <li class="border-b border-divider pb-3">
+          <a
+            href="https://www.linkedin.com/in/pablo-heidenreich/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-primary transition-colors block"
+          >
+            {t("About Me")}
+          </a>
+        </li>
+        <li class="border-b border-divider pb-3">
+          <a
+            href="https://www.linkedin.com/in/pablo-heidenreich/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-primary transition-colors block"
+          >
+            {t("My Experience")}
+          </a>
+        </li>
+        <li class="mt-4">
+          <p class="font-mono text-[11px] mb-2 text-text/50">{t("Language")}</p>
+          <LanguageSelector lang={lang} />
+        </li>
+      </ul>
+    </nav>
+
+    <div class="mt-auto">
+      <p class="font-mono text-[10px] text-text/40">Pablo Heidenreich · ed. 2026</p>
+    </div>
+  </div>
+</aside>
+
+<script>
+  const overlay = document.getElementById("mobile-menu-overlay")!;
+  const panel = document.getElementById("mobile-menu-panel")!;
+  const openBtn = document.getElementById("menu-open-btn");
+  const closeBtn = document.getElementById("menu-close-btn");
+  const navLinks = panel.querySelectorAll<HTMLAnchorElement>(".mobile-nav-link");
+
+  const setOpen = (isOpen: boolean) => {
+    overlay.classList.toggle("opacity-0", !isOpen);
+    overlay.classList.toggle("pointer-events-none", !isOpen);
+    overlay.classList.toggle("opacity-100", isOpen);
+    panel.classList.toggle("-left-[300px]", !isOpen);
+    panel.classList.toggle("left-0", isOpen);
+  };
+
+  openBtn?.addEventListener("click", () => setOpen(true));
+  closeBtn?.addEventListener("click", () => setOpen(false));
+  overlay.addEventListener("click", () => setOpen(false));
+  navLinks.forEach((link) => link.addEventListener("click", () => setOpen(false)));
+</script>

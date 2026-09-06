@@ -1,0 +1,182 @@
+---
+// Ported from the React ContactForm.tsx. The original only used React for
+// local form state (values, errors, submitting flag) — none of that needs
+// a component framework, so this is now a static form plus a small
+// vanilla-JS script. That avoids shipping a JS framework runtime just to
+// validate three fields and call EmailJS.
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="my-24">
+  <form
+    id="contact-form"
+    class="max-w-2xl mx-auto border-t border-divider p-10"
+    data-name-required={t("NameRequired")}
+    data-email-required={t("EmailRequired")}
+    data-email-invalid={t("EmailInvalid")}
+    data-message-required={t("MessageRequired")}
+    data-success-msg={t("SuccessMsg")}
+    data-error-msg={t("ErrorMsg")}
+    data-sending-label={t("Sending")}
+    data-send-label={t("Send")}
+  >
+    <h2 class="font-fraunces text-3xl sm:text-5xl font-semibold mb-10 text-text">
+      {t("ContactMe")}
+    </h2>
+
+    <div class="mb-8">
+      <label for="name" class="font-mono text-xs text-text/60">{t("Name")}</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="mt-1 block w-full px-1 py-2 bg-transparent text-text border-b border-divider focus:outline-none focus:border-primary transition-colors duration-200"
+      />
+      <p class="field-error text-red-700 text-xs mt-2 hidden"></p>
+    </div>
+
+    <div class="mb-8">
+      <label for="email" class="font-mono text-xs text-text/60">{t("Email")}</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="mt-1 block w-full px-1 py-2 bg-transparent text-text border-b border-divider focus:outline-none focus:border-primary transition-colors duration-200"
+      />
+      <p class="field-error text-red-700 text-xs mt-2 hidden"></p>
+    </div>
+
+    <div class="mb-10">
+      <label for="message" class="font-mono text-xs text-text/60">{t("Message")}</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        class="mt-1 block w-full px-1 py-2 bg-transparent text-text border-b border-divider focus:outline-none focus:border-primary transition-colors duration-200"
+      ></textarea>
+      <p class="field-error text-red-700 text-xs mt-2 hidden"></p>
+    </div>
+
+    <button
+      type="submit"
+      class="submit-btn px-8 py-3 bg-primary text-bg font-medium hover:bg-secondary transition-colors disabled:opacity-60"
+    >
+      {t("Send")}
+    </button>
+
+    <div class="submit-message mt-6 pl-3 border-l-2 text-sm hidden"></div>
+  </form>
+</section>
+
+<script>
+  import emailjs from "@emailjs/browser";
+
+  const form = document.querySelector<HTMLFormElement>("#contact-form");
+  if (form) {
+    const nameInput = form.querySelector<HTMLInputElement>("#name")!;
+    const emailInput = form.querySelector<HTMLInputElement>("#email")!;
+    const messageInput = form.querySelector<HTMLTextAreaElement>("#message")!;
+    const fieldErrors = form.querySelectorAll<HTMLParagraphElement>(".field-error");
+    const submitBtn = form.querySelector<HTMLButtonElement>(".submit-btn")!;
+    const submitMessageEl = form.querySelector<HTMLDivElement>(".submit-message")!;
+
+    const messages = form.dataset;
+
+    const clearErrors = () => {
+      fieldErrors.forEach((el) => {
+        el.textContent = "";
+        el.classList.add("hidden");
+      });
+      [nameInput, emailInput, messageInput].forEach((el) =>
+        el.classList.remove("border-red-700")
+      );
+    };
+
+    const showError = (input: HTMLInputElement | HTMLTextAreaElement, message: string) => {
+      const wrapper = input.closest("div");
+      const errorEl = wrapper?.querySelector<HTMLParagraphElement>(".field-error");
+      if (errorEl) {
+        errorEl.textContent = message;
+        errorEl.classList.remove("hidden");
+      }
+      input.classList.add("border-red-700");
+      input.classList.remove("border-divider");
+    };
+
+    const validate = () => {
+      clearErrors();
+      let valid = true;
+
+      if (!nameInput.value.trim()) {
+        showError(nameInput, messages.nameRequired ?? "");
+        valid = false;
+      }
+
+      if (!emailInput.value.trim()) {
+        showError(emailInput, messages.emailRequired ?? "");
+        valid = false;
+      } else if (!/\S+@\S+\.\S+/.test(emailInput.value)) {
+        showError(emailInput, messages.emailInvalid ?? "");
+        valid = false;
+      }
+
+      if (!messageInput.value.trim()) {
+        showError(messageInput, messages.messageRequired ?? "");
+        valid = false;
+      }
+
+      return valid;
+    };
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!validate()) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = messages.sendingLabel ?? "Sending...";
+      submitMessageEl.classList.add("hidden");
+
+      try {
+        const serviceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+        const templateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+        const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+
+        if (!serviceId || !templateId || !publicKey) {
+          throw new Error("Missing EmailJS env vars");
+        }
+
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            user_name: nameInput.value,
+            user_email: emailInput.value,
+            message: messageInput.value,
+            reply_to: emailInput.value,
+          },
+          publicKey
+        );
+
+        submitMessageEl.textContent = messages.successMsg ?? "";
+        submitMessageEl.classList.remove("hidden", "border-red-700", "text-red-700");
+        submitMessageEl.classList.add("border-primary", "text-text");
+        form.reset();
+      } catch (error) {
+        console.error("EmailJS Error details:", error);
+        submitMessageEl.textContent = messages.errorMsg ?? "";
+        submitMessageEl.classList.remove("hidden", "border-primary", "text-text");
+        submitMessageEl.classList.add("border-red-700", "text-red-700");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = messages.sendLabel ?? "Send";
+      }
+    });
+  }
+</script>

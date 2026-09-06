@@ -1,0 +1,49 @@
+---
+import Card from "./Card.astro";
+import projects from "../data/projects.json";
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+interface Project {
+  projectLink?: string | null;
+  githubLink?: string | null;
+  projectName: string;
+  projectTitle: string;
+  projectDescription: string;
+  serverLink?: string | null;
+  status?: string;
+  projectImage: {
+    src: string;
+    srcSet?: string;
+    sizes?: string;
+  };
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div id="projects" class="flex flex-col gap-12 sm:pt-42 pt-20 border-t border-b border-divider">
+  <h2 class="font-fraunces text-xl sm:text-4xl xl:text-6xl font-semibold text-text">
+    {t("Latest Work")}
+  </h2>
+  <section class="projects flex pb-50">
+    {
+      (projects as Project[]).map((project) => (
+        <Card
+          projectName={project.projectName}
+          projectTitle={t(project.projectTitle)}
+          projectDescription={t(project.projectName)}
+          projectLink={project.projectLink}
+          projectImage={project.projectImage}
+          githubLink={project.githubLink}
+          serverLink={project.serverLink}
+          status={project.status}
+        />
+      ))
+    }
+  </section>
+</div>
