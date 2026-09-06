@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --font-lexend: "Lexend Mega", sans-serif;
-  --color-bg: #121212;
-  --color-surface: #1e1e1e;
-  --color-primary: #ffd359;
-  --color-secondary: #ff78e2;
-  --color-divider: #2a2a2a;
-  --color-text: #f3f4f6;
-  --color-shadow: #000000;
+  --font-fraunces: "Fraunces", serif;
+  --font-sans: "Work Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --color-bg: #edeae3;
+  --color-surface: #e4e0d3;
+  --color-primary: #b5502e;
+  --color-secondary: #7c8b6f;
+  --color-divider: #c9c4b7;
+  --color-text: #1f2b3a;
+  --color-shadow: #1f2b3a;
   --color-linkedin: #0a66c2;
   --color-instagram: #e1306c;
   --color-github: #333333;

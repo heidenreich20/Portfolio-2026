@@ -10,6 +10,7 @@
         "Languages": [
             "JavaScript",
             "TypeScript",
+            "Java",
             "C#",
             ".NET",
             "SQL",
@@ -19,12 +20,9 @@
         "Backend": [
             "Node.js",
             "Express",
+            "Spring Boot",
             "MongoDB",
-            "PostgreSQL",
-            "Zod",
-            "jsonwebtoken",
-            "bcrypt",
-            "axios"
+            "PostgreSQL"
         ],
         "Tools": [
             "Git",

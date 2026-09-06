@@ -25,7 +25,7 @@ const Work = () => {
   return (
     <div id="projects" className="relative flex flex-col gap-12 px-4 xl:px-12 sm:pt-42 pt-20">
       <DividerTop />
-      <h2 className="font-lexend text-xl sm:text-4xl xl:text-6xl font-extrabold text-white">{t("Latest Work")}</h2>
+      <h2 className="font-fraunces text-xl sm:text-4xl xl:text-6xl font-semibold text-text">{t("Latest Work")}</h2>
       <section className="projects flex pb-50 z-10">
         {projects.map((project: Project, index: number) => (
           <Card

@@ -13,47 +13,48 @@ const NavMobile = ({ isOpen, onClose }: NavMobileProps) => {
     <>
       {/* Overlay oscuro cuando el menú está abierto */}
       <div 
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[60] transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed inset-0 bg-text/40 backdrop-blur-sm z-[60] transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         onClick={onClose}
       />
 
       {/* Panel del Menú */}
-      <aside className={`fixed top-0 h-full w-[280px] bg-secondary border-r-8 border-black z-[70] transition-all duration-300 ease-in-out shadow-[10px_0px_0px_0px_rgba(0,0,0,1)] ${isOpen ? 'left-0' : '-left-[300px]'}`}>
+      <aside className={`fixed top-0 h-full w-[280px] bg-bg border-r border-divider z-[70] transition-all duration-300 ease-in-out ${isOpen ? 'left-0' : '-left-[300px]'}`}>
         <div className="p-6 flex flex-col h-full">
           <button 
             onClick={onClose} 
-            className="self-end bg-black text-white w-10 h-10 font-black border-2 border-white mb-8 active:translate-y-1 transition-transform"
+            aria-label={t("Close menu")}
+            className="self-end text-text text-2xl w-10 h-10 hover:opacity-60 transition-opacity"
           >
-            X
+            ×
           </button>
 
           <nav>
-            <ul className="flex flex-col gap-8 font-lexend font-black text-xl uppercase italic">
-              <li className="border-b-4 border-black pb-2">
-                <a href="#projects" onClick={onClose} className="hover:pl-2 transition-all block">
+            <ul className="flex flex-col gap-8 font-fraunces text-2xl">
+              <li className="border-b border-divider pb-3">
+                <a href="#projects" onClick={onClose} className="hover:text-primary transition-colors block">
                   {t("My Work")}
                 </a>
               </li>
-              <li className="border-b-4 border-black pb-2">
-                <a href="https://www.linkedin.com/in/pablo-heidenreich/" target="_blank" rel="noopener noreferrer" className="hover:pl-2 transition-all block">
+              <li className="border-b border-divider pb-3">
+                <a href="https://www.linkedin.com/in/pablo-heidenreich/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors block">
                   {t("About Me")}
                 </a>
               </li>
-              <li className="border-b-4 border-black pb-2">
-                <a href="https://www.linkedin.com/in/pablo-heidenreich/" target="_blank" rel="noopener noreferrer" className="hover:pl-2 transition-all block">
+              <li className="border-b border-divider pb-3">
+                <a href="https://www.linkedin.com/in/pablo-heidenreich/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors block">
                   {t("My Experience")}
                 </a>
               </li>
               <li className="mt-4">
-                <p className="text-[10px] mb-2 opacity-50 NOT-ITALIC font-bold uppercase tracking-widest text-neutral-300">Settings // Language</p>
+                <p className="font-mono text-[11px] mb-2 text-text/50">{t("Language")}</p>
                 <LanguageSelector />
               </li>
             </ul>
           </nav>
 
           <div className="mt-auto">
-            <p className="text-[10px] font-black opacity-30 uppercase tracking-tighter">
-              Pablo_Heidenreich_OS v2.0
+            <p className="font-mono text-[10px] text-text/40">
+              Pablo Heidenreich · ed. 2026
             </p>
           </div>
         </div>

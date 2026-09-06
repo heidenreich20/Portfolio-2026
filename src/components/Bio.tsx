@@ -8,12 +8,12 @@ const Bio = () => {
 
 	return (
 		<div className="relative flex mt-12">
-			<section className="flex col-span-2 gap-12 sm:mx-10 mx-4 flex-col font-lexend sm:w-1/2 my-12 leading-8 justify-end">
-				<div className="xl:text-6xl text-white lg:text-3xl text-lg font-extrabold font-lexend">
+			<section className="flex col-span-2 gap-12 sm:mx-10 mx-4 flex-col sm:w-1/2 my-12 leading-8 justify-end">
+				<div className="xl:text-6xl text-text lg:text-3xl text-lg font-semibold font-fraunces leading-tight">
 					<h1 className="">{t("Title.part1")}</h1>
 					<p>{t("Title.part2")}</p>
 				</div>
-				<p className='xl:text-lg text-xs'>
+				<p className='xl:text-lg text-xs text-text/70'>
 					{t("Title.description")}
 				</p>
 				<div className='flex xl:flex-row flex-col gap-4 items-center justify-evenly'>

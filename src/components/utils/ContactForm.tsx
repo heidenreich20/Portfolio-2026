@@ -77,84 +77,81 @@ const ContactForm: React.FC = () => {
 
   // Clases comunes para los inputs
   const inputClasses = (error?: string) => `
-    mt-1 block w-full px-4 py-3 
-    bg-[#121212] text-white
-    border-2 ${error ? "border-red-500" : "border-primary"} 
-    shadow-[inset_4px_4px_0px_0px_rgba(0,0,0,1)]
-    focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent
-    transition-all duration-200
+    mt-1 block w-full px-1 py-2 
+    bg-transparent text-text
+    border-b ${error ? "border-red-700" : "border-divider"} 
+    focus:outline-none focus:border-primary
+    transition-colors duration-200
   `;
 
   return (
     <section className="my-24 px-4">
       <form
         onSubmit={handleSubmit}
-        className="max-w-2xl mx-auto p-1 bg-primary border-4 border-black shadow-[15px_15px_0px_0px_rgba(0,0,0,1)]"
+        className="max-w-2xl mx-auto border-t border-divider p-10"
       >
-        <div className="bg-[#1e1e1e] p-6 sm:p-10 border-2 border-black">
-          <h2 className="font-lexend text-3xl sm:text-5xl font-black mb-8 text-primary uppercase tracking-tighter italic">
-            {t("ContactMe")}
-          </h2>
+        <h2 className="font-fraunces text-3xl sm:text-5xl font-semibold mb-10 text-text">
+          {t("ContactMe")}
+        </h2>
 
-          <div className="mb-6">
-            <label htmlFor="name" className="font-lexend font-bold text-secondary uppercase text-sm tracking-widest">
-              {t("Name")}
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className={inputClasses(errors.name)}
-            />
-            {errors.name && <p className="text-red-500 text-xs mt-2 font-bold uppercase">{errors.name}</p>}
-          </div>
-
-          <div className="mb-6">
-            <label htmlFor="email" className="font-lexend font-bold text-secondary uppercase text-sm tracking-widest">
-              {t("Email")}
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className={inputClasses(errors.email)}
-            />
-            {errors.email && <p className="text-red-500 text-xs mt-2 font-bold uppercase">{errors.email}</p>}
-          </div>
-
-          <div className="mb-8">
-            <label htmlFor="message" className="font-lexend font-bold text-secondary uppercase text-sm tracking-widest">
-              {t("Message")}
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows={4}
-              className={inputClasses(errors.message)}
-            />
-            {errors.message && <p className="text-red-500 text-xs mt-2 font-bold uppercase">{errors.message}</p>}
-          </div>
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className="cta group relative flex items-center justify-center w-full sm:w-auto px-10 py-4 bg-primary text-black font-black uppercase tracking-tighter text-xl border-2 border-black hover:translate-x-[-2px] hover:translate-y-[-2px]"
-          >
-            {isSubmitting ? t("Sending") : t("Send")}
-          </button>
-
-          {submitMessage && (
-            <div className={`mt-6 p-3 border-2 border-black font-bold uppercase text-center ${submitMessage.includes('Error') ? 'bg-red-400' : 'bg-green-400'}`}>
-              {submitMessage}
-            </div>
-          )}
+        <div className="mb-8">
+          <label htmlFor="name" className="font-mono text-xs text-text/60">
+            {t("Name")}
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className={inputClasses(errors.name)}
+          />
+          {errors.name && <p className="text-red-700 text-xs mt-2">{errors.name}</p>}
         </div>
+
+        <div className="mb-8">
+          <label htmlFor="email" className="font-mono text-xs text-text/60">
+            {t("Email")}
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className={inputClasses(errors.email)}
+          />
+          {errors.email && <p className="text-red-700 text-xs mt-2">{errors.email}</p>}
+        </div>
+
+        <div className="mb-10">
+          <label htmlFor="message" className="font-mono text-xs text-text/60">
+            {t("Message")}
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            rows={4}
+            className={inputClasses(errors.message)}
+          />
+          {errors.message && <p className="text-red-700 text-xs mt-2">{errors.message}</p>}
+        </div>
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="px-8 py-3 bg-primary text-bg font-medium hover:bg-secondary transition-colors disabled:opacity-60"
+        >
+          {isSubmitting ? t("Sending") : t("Send")}
+        </button>
+
+        {submitMessage && (
+          <div className={`mt-6 pl-3 border-l-2 text-sm ${submitMessage.includes('Error') ? 'border-red-700 text-red-700' : 'border-primary text-text'}`}>
+            {submitMessage}
+          </div>
+        )}
       </form>
     </section>
   );
