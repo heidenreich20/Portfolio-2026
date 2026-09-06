@@ -1,0 +1,32 @@
+---
+import stack from "../data/stack.json";
+import { useTranslations, type Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="my-24">
+  <h2 class="font-fraunces text-3xl sm:text-4xl xl:text-5xl font-semibold text-text mb-10">
+    {t("MyKnowledge")}
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 border-t border-divider pt-8">
+    {
+      Object.entries(stack.techStack).map(([category, items]) => (
+        <div class="flex flex-col gap-3">
+          <h3 class="font-mono text-xs text-primary">{t(category)}</h3>
+          <ul class="flex flex-col gap-1.5">
+            {items.map((item) => (
+              <li class="text-text/80 text-sm sm:text-base">{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</section>

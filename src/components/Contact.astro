@@ -1,0 +1,14 @@
+---
+import ContactForm from "./ContactForm.astro";
+import type { Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<div id="contactMe" class="pb-20 pt-42 border-t border-divider">
+  <ContactForm lang={lang} />
+</div>

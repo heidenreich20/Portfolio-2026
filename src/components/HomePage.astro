@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NavDesktop from "./NavDesktop.astro";
+import NavMobile from "./NavMobile.astro";
+import Bio from "./Bio.astro";
+import Work from "./Work.astro";
+import TechStack from "./TechStack.astro";
+import Contact from "./Contact.astro";
+import Footer from "./Footer.astro";
+import type { Lang } from "../i18n/utils";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+}
+
+const { lang, title, description } = Astro.props;
+---
+
+<Layout lang={lang} title={title} description={description}>
+  <main class="bg-bg min-h-screen selection:bg-black selection:text-primary">
+    <NavMobile lang={lang} />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <NavDesktop lang={lang} />
+      <article class="overflow-hidden">
+        <Bio lang={lang} />
+        <Work lang={lang} />
+        <TechStack lang={lang} />
+        <Contact lang={lang} />
+      </article>
+      <Footer lang={lang} />
+    </div>
+  </main>
+</Layout>
