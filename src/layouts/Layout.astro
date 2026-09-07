@@ -124,6 +124,49 @@ const localeAlternates = Object.keys(languages) as Lang[];
     })} />
   </head>
   <body>
+    <script is:inline>
+      (function () {
+        const storedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = storedTheme || (prefersDark ? "dark" : "light");
+
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <slot />
+
+    <script>
+      const setTheme = (theme: "light" | "dark") => {
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        localStorage.setItem("theme", theme);
+
+        document.querySelectorAll<HTMLElement>("[data-theme-toggle]").forEach((button) => {
+          const icon = button.querySelector<HTMLElement>("[data-theme-icon]");
+          const isDark = theme === "dark";
+
+          button.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+          button.setAttribute("aria-pressed", String(isDark));
+          button.title = isDark ? "Switch to light mode" : "Switch to dark mode";
+          if (icon) {
+            icon.textContent = isDark ? "☀" : "☾";
+          }
+        });
+      };
+
+      document.querySelectorAll<HTMLElement>("[data-theme-toggle]").forEach((button) => {
+        const currentTheme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+        const icon = button.querySelector<HTMLElement>("[data-theme-icon]");
+        if (icon) {
+          icon.textContent = currentTheme === "dark" ? "☀" : "☾";
+        }
+
+        button.addEventListener("click", () => {
+          const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+          setTheme(nextTheme as "light" | "dark");
+        });
+      });
+    </script>
   </body>
 </html>
