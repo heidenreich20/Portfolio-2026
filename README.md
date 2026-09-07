@@ -4,7 +4,7 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-Bienvenido a mi portfolio personal. Este proyecto no es solo una vitrina de mis trabajos, sino un experimento de diseño **Neobrutalista** aplicado al desarrollo web moderno — ahora reconstruido sobre Astro para maximizar performance y SEO.
+Bienvenido a mi portfolio personal. Este proyecto no es solo una vitrina de mis trabajos, sino un experimento de diseño aplicado al desarrollo web moderno — ahora reconstruido sobre Astro para maximizar performance y SEO.
 
 ## 🚀 Características
 
