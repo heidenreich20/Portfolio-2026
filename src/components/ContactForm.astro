@@ -1,9 +1,4 @@
 ---
-// Ported from the React ContactForm.tsx. The original only used React for
-// local form state (values, errors, submitting flag) — none of that needs
-// a component framework, so this is now a static form plus a small
-// vanilla-JS script. That avoids shipping a JS framework runtime just to
-// validate three fields and call EmailJS.
 import { useTranslations, type Lang } from "../i18n/utils";
 
 interface Props {
@@ -39,7 +34,7 @@ const t = useTranslations(lang);
         name="name"
         class="mt-1 block w-full px-1 py-2 bg-transparent text-text border-b border-divider focus:outline-none focus:border-primary transition-colors duration-200"
       />
-      <p class="field-error text-red-700 text-xs mt-2 hidden"></p>
+      <p class="field-error text-error text-xs mt-2 hidden"></p>
     </div>
 
     <div class="mb-8">
@@ -50,7 +45,7 @@ const t = useTranslations(lang);
         name="email"
         class="mt-1 block w-full px-1 py-2 bg-transparent text-text border-b border-divider focus:outline-none focus:border-primary transition-colors duration-200"
       />
-      <p class="field-error text-red-700 text-xs mt-2 hidden"></p>
+      <p class="field-error text-error text-xs mt-2 hidden"></p>
     </div>
 
     <div class="mb-10">
@@ -61,7 +56,7 @@ const t = useTranslations(lang);
         rows="4"
         class="mt-1 block w-full px-1 py-2 bg-transparent text-text border-b border-divider focus:outline-none focus:border-primary transition-colors duration-200"
       ></textarea>
-      <p class="field-error text-red-700 text-xs mt-2 hidden"></p>
+      <p class="field-error text-error text-xs mt-2 hidden"></p>
     </div>
 
     <button
@@ -101,7 +96,7 @@ const t = useTranslations(lang);
           el.classList.add("hidden");
         });
         [nameInput, emailInput, messageInput].forEach((el) =>
-          el.classList.remove("border-red-700")
+          el.classList.remove("border-error")
         );
       };
 
@@ -112,7 +107,7 @@ const t = useTranslations(lang);
           errorEl.textContent = message;
           errorEl.classList.remove("hidden");
         }
-        input.classList.add("border-red-700");
+        input.classList.add("border-error");
         input.classList.remove("border-divider");
       };
 
@@ -171,14 +166,14 @@ const t = useTranslations(lang);
           );
 
           submitMessageEl.textContent = messages.successMsg ?? "";
-          submitMessageEl.classList.remove("hidden", "border-red-700", "text-red-700");
+          submitMessageEl.classList.remove("hidden", "border-error", "text-error");
           submitMessageEl.classList.add("border-primary", "text-text");
           form.reset();
         } catch (error) {
           console.error("EmailJS Error details:", error);
           submitMessageEl.textContent = messages.errorMsg ?? "";
           submitMessageEl.classList.remove("hidden", "border-primary", "text-text");
-          submitMessageEl.classList.add("border-red-700", "text-red-700");
+          submitMessageEl.classList.add("border-error", "text-error");
         } finally {
           submitBtn.disabled = false;
           submitBtn.textContent = messages.sendLabel ?? "Send";

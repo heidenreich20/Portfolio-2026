@@ -1,9 +1,4 @@
 ---
-// Ported from LanguageSelector.tsx. Since language is now a real route
-// (/, /es/, /it/) rather than client-side state, switching language is
-// just a link to another URL — a search engine can follow it, and it
-// works with JS disabled. The open/close dropdown behavior is preserved
-// with a tiny script instead of React state.
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { languages, type Lang } from "../i18n/utils";
 
@@ -13,8 +8,6 @@ interface Props {
 
 const { lang } = Astro.props;
 
-// Keep the current path (e.g. "/#projects") when switching locales so the
-// user stays on the same page, just re-rooted under the new locale prefix.
 const currentPath = Astro.url.pathname.replace(/^\/(es|it)/, "") || "/";
 
 const flags: Record<Lang, string> = {
@@ -39,7 +32,7 @@ const labelFor = (l: Lang) => l.toUpperCase();
     </div>
     <span class="lang-arrow text-[10px] text-text/50 transition-transform duration-300">▼</span>
   </button>
-  <ul class="lang-list absolute z-[60] mt-2 w-full bg-bg border border-divider shadow-[0_4px_12px_rgba(31,43,58,0.1)] hidden">
+  <ul class="lang-list absolute z-60 mt-2 w-full bg-bg border border-divider shadow-[0_4px_12px_rgba(31,43,58,0.1)] hidden">
     {
       localeList.map((l) => (
         <li>

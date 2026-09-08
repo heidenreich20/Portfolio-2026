@@ -11,6 +11,8 @@
   --color-secondary: #5c6851;
   --color-divider: #c9c4b7;
   --color-text: #1f2b3a;
+  --color-muted: #616870;
+  --color-error: #b91c1c;
 }
 
 :root {
@@ -20,6 +22,8 @@
   --color-secondary: #5c6851;
   --color-divider: #c9c4b7;
   --color-text: #1f2b3a;
+  --color-muted: #616870;
+  --color-error: #b91c1c;
   color-scheme: light;
 }
 
@@ -30,6 +34,8 @@ html[data-theme="dark"] {
   --color-secondary: #a1b388;
   --color-divider: #30405a;
   --color-text: #f5f1eb;
+  --color-muted: #acacac;
+  --color-error: #ef4444;
   color-scheme: dark;
 }
 
