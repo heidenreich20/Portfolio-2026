@@ -1,7 +1,4 @@
 ---
-// Ported from NavMobile.tsx. The open/close state was the only reason
-// this used React; a couple of classList toggles do the same job with no
-// hydrated component at all.
 import LanguageSelector from "./LanguageSelector.astro";
 import { useTranslations, type Lang } from "../i18n/utils";
 
@@ -61,7 +58,7 @@ const t = useTranslations(lang);
         </li>
         <li class="mt-4 flex items-center justify-between gap-3">
           <div class="flex-1">
-            <p class="font-mono text-[11px] mb-2 text-text/50">{t("Language")}</p>
+            <p class="font-mono text-[11px] mb-2 text-muted">{t("Language")}</p>
             <LanguageSelector lang={lang} />
           </div>
           <button
@@ -79,7 +76,7 @@ const t = useTranslations(lang);
     </nav>
 
     <div class="mt-auto">
-      <p class="font-mono text-[10px] text-text/40">Pablo Heidenreich · ed. 2026</p>
+      <p class="font-mono text-[10px] text-muted">Pablo Heidenreich · ed. 2026</p>
     </div>
   </div>
 </aside>
